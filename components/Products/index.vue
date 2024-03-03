@@ -4,15 +4,6 @@ import { onMounted } from "vue";
 import { useMainStore } from "~/store/index";
 
 const store = useMainStore();
-onMounted(async () => {
-  try {
-    const response = await axios.get("products.json");
-    const products = response.data;
-    store.addAllProducts(products);
-  } catch (error) {
-    console.error(error);
-  }
-});
 </script>
 
 <template>

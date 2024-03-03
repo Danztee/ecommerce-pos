@@ -6,8 +6,11 @@ export interface Product {
   desc: string;
 }
 
+export interface CartProduct extends Product {
+  quantity?: number;
+}
+
 export interface State {
-  // productInfo: Product;
-  cartItems: Product[];
+  cartItems: CartProduct[];
   items: Product[];
 }

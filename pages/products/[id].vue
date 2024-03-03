@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { useMainStore } from "~/store/index";
 
@@ -7,35 +7,39 @@ const route = useRoute();
 const store = useMainStore();
 
 const productId = route.params.id;
-// const product = ref();
+const product = ref(null);
 
-const product = store.getProductById(productId);
-console.log(product);
+onMounted(async () => {
+  product.value = await store.getProductById(productId);
+});
+
+function addToCart() {}
 </script>
 
 <template>
   <section class="p-6 lg:p-10 bg-[var(--clr-grey-10)] text-[var(--clr-grey-5)]">
     <div class="section-center">
-      <h3 class="page-hero-title">Home / {{ product.name }}</h3>
+      <h3 class="page-hero-title">Home / {{ product?.name }}</h3>
     </div>
   </section>
 
   <section class="p-6 lg:p-10 single-product">
     <div class="grid lg:grid-cols-2 gap-10 items-center">
       <img
-        :src="product.image"
+        :src="product?.image"
         class="single-product-img h-[25rem] object-cover rounded-[var(--radius)]"
-        :alt="product.name"
+        :alt="product?.name"
       />
       <article class="single-product-info">
         <div>
-          <h2 class="single-product-title">{{ product.name }}</h2>
-          <p class="single-product-price">{{ formatPrice(product.price) }}</p>
-          <div class="single-product-colors"></div>
-          <p class="single-product-desc">{{ product.desc }}</p>
+          <h2 class="single-product-title">{{ product?.name }}</h2>
+          <p class="single-product-price">
+            {{ formatPrice(product?.price) ?? 0 }}
+          </p>
+          <p class="single-product-desc">{{ product?.desc }}</p>
           <button
             class="bg-[var(--clr-primary-6)] p-2 rounded-md text-white px-6"
-            @click="addToCart(product.id)"
+            @click="store.addToCart(product)"
           >
             add to cart
           </button>
