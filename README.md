@@ -23,6 +23,12 @@ git clone https://github.com/Danztee/ecommerce-pos.git
 
 3. Install dependencies using npm or yarn:
 
+```bash
+npm run install
+or
+yarn install
+```
+
 ### Running the Application
 
 Once the dependencies are installed, you can run the application in development mode with the following command:
