@@ -1,44 +1,56 @@
 [
   {
     "id": "rec43w3ipXvP28vog",
-    "name": "high-back bench",
+    "name": "High-back Bench",
     "price": 9699,
     "image": "/product-1.jpeg",
-    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
+    "additionalDetails": {
+      "description": "The high-back bench is a comfortable seating option for any space. Its ergonomic design provides excellent support, while its stylish appearance adds a touch of elegance to your decor. Whether you're enjoying a meal with family or relaxing with a book, this bench is sure to become a favorite spot in your home."
+    }
   },
   {
     "id": "rec4f2RIftFCb7aHh",
     "price": 7999,
-    "name": "albany table",
+    "name": "Albany Table",
     "image": "/product-2.jpeg",
-    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
+    "additionalDetails": {
+      "description": "The Albany table is a versatile piece of furniture that can be used in a variety of settings. Its sleek design and sturdy construction make it ideal for both formal and casual dining. Whether you're hosting a dinner party or enjoying a quiet meal at home, this table is sure to impress."
+    }
   },
   {
     "id": "rec8kkCmSiMkbkiko",
     "price": 2599,
-    "name": "accent chair",
+    "name": "Accent Chair",
     "image": "/product-3.jpeg",
-    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
+    "additionalDetails": {
+      "description": "Add a pop of color and style to any room with the accent chair. Its modern design and vibrant upholstery make it a standout piece that will complement any decor. Whether you're looking for extra seating in the living room or a statement piece for the bedroom, this chair is sure to make a statement."
+    }
   },
   {
     "id": "recBohCqQsot4Q4II",
     "price": 4599,
-    "name": "wooden table",
+    "name": "Wooden Table",
     "image": "/product-4.jpeg",
-    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
+    "additionalDetails": {
+      "description": "The wooden table is a classic addition to any dining room or kitchen. Its timeless design and durable construction make it a practical choice for everyday use. Whether you're hosting a dinner party or enjoying a casual meal with family, this table is sure to meet your needs."
+    }
   },
   {
     "id": "recDG1JRZnbpRHpoy",
     "price": 3699,
-    "name": "dining table",
+    "name": "Dining Table",
     "image": "/product-5.jpeg",
-    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
+    "additionalDetails": {
+      "description": "The dining table is the heart of any dining room. Its spacious design and sturdy construction make it perfect for gathering family and friends for meals and celebrations. Whether you're hosting a formal dinner party or enjoying a casual meal with loved ones, this table is sure to be the focal point of your space."
+    }
   },
   {
     "id": "recNWGyP7kjFhSqw3",
     "price": 6999,
-    "name": "sofa set",
+    "name": "Sofa Set",
     "image": "/product-6.jpeg",
-    "description": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge"
+    "additionalDetails": {
+      "description": "The sofa set is the perfect addition to any living room or entertainment space. Its plush cushions and spacious design provide plenty of seating for family and friends, while its sleek design adds a touch of elegance to your decor. Whether you're hosting a movie night or simply relaxing with a book, this sofa set is sure to become a favorite spot in your home."
+    }
   }
 ]

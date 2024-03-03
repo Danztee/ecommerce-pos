@@ -24,7 +24,7 @@ git clone https://github.com/Danztee/ecommerce-pos.git
 3. Install dependencies using npm or yarn:
 
 ```bash
-npm run install
+npm install
 or
 yarn install
 ```

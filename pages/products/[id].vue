@@ -22,7 +22,13 @@ onMounted(async () => {
       class="p-6 lg:p-10 bg-[var(--clr-grey-10)] text-[var(--clr-grey-5)]"
     >
       <div class="section-center">
-        <h3 class="page-hero-title">Home / {{ product?.name }}</h3>
+        <h3 class="page-hero-title">
+          <RouterLink to="/" class="underline hover:text-[var(--clr-primary-6)]"
+            >Home</RouterLink
+          >
+          /
+          {{ product?.name }}
+        </h3>
       </div>
     </section>
 
