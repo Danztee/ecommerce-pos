@@ -3,7 +3,7 @@ import { resolve } from "path";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ["~/assets/main.scss"],
+  css: ["~/assets/main.css"],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -14,4 +14,9 @@ export default defineNuxtConfig({
     "@": resolve(__dirname, "/"),
   },
   modules: ["@pinia/nuxt"],
+  app: {
+    head: {
+      title: "ECommerce POS",
+    },
+  },
 });

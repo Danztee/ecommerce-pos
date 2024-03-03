@@ -3,7 +3,7 @@
     <div class="hero-container">
       <h1 class="text-slanted">rest, relax, unwind</h1>
       <h3>Embrace your choices - we do</h3>
-      <router-link to="/products" class="hero-btn"> show now </router-link>
+      <NuxtLink to="/products" class="hero-btn"> shop now </NuxtLink>
     </div>
   </section>
 </template>

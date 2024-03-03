@@ -1,50 +1,58 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import { useMainStore } from "~/store/index";
+import { useMainStore } from "~/store";
+import formatPrice from "~/utils/formatPrice";
+import type { Product } from "~/types";
 
 const route = useRoute();
 const store = useMainStore();
 
 const productId = route.params.id;
-const product = ref(null);
+const product = ref<Product | null | undefined>(null);
 
 onMounted(async () => {
-  product.value = await store.getProductById(productId);
+  product.value = await store.getProductById(productId as string);
 });
 </script>
 
 <template>
-  <section class="p-6 lg:p-10 bg-[var(--clr-grey-10)] text-[var(--clr-grey-5)]">
-    <div class="section-center">
-      <h3 class="page-hero-title">Home / {{ product?.name }}</h3>
-    </div>
-  </section>
+  <div v-if="product">
+    <section
+      class="p-6 lg:p-10 bg-[var(--clr-grey-10)] text-[var(--clr-grey-5)]"
+    >
+      <div class="section-center">
+        <h3 class="page-hero-title">Home / {{ product?.name }}</h3>
+      </div>
+    </section>
 
-  <section class="p-6 lg:p-10 single-product">
-    <div class="grid lg:grid-cols-2 gap-10 items-center">
-      <img
-        :src="product?.image"
-        class="single-product-img h-[25rem] object-cover rounded-[var(--radius)]"
-        :alt="product?.name"
-      />
-      <article class="single-product-info">
-        <div>
-          <h2 class="single-product-title">{{ product?.name }}</h2>
-          <p class="single-product-price">
-            {{ formatPrice(product?.price) ?? 0 }}
-          </p>
-          <p class="single-product-desc">{{ product?.desc }}</p>
-          <button
-            class="bg-[var(--clr-primary-6)] p-2 rounded-md text-white px-6"
-            @click="store.addItem(product)"
-          >
-            add to cart
-          </button>
-        </div>
-      </article>
-    </div>
-  </section>
+    <section class="p-6 lg:p-10 single-product">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <img
+          :src="product?.image"
+          class="single-product-img h-[25rem] object-cover rounded-[var(--radius)]"
+          :alt="product?.name"
+        />
+        <article class="single-product-info">
+          <div>
+            <h2 class="single-product-title">{{ product?.name }}</h2>
+            <p class="single-product-price">
+              {{ formatPrice(product?.price) ?? 0 }}
+            </p>
+            <p class="single-product-desc">
+              {{ product?.additionalDetails.description }}
+            </p>
+            <button
+              class="bg-[var(--clr-primary-6)] p-2 rounded-md text-white px-6"
+              @click="store.addItem(product)"
+            >
+              add to cart
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
 </template>
 
 <style scoped>

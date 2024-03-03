@@ -3,7 +3,9 @@ export interface Product {
   name: string;
   price: number;
   image: string;
-  desc: string;
+  additionalDetails: {
+    description: string;
+  };
 }
 
 export interface CartProduct extends Product {
