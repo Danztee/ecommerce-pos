@@ -1,9 +1,8 @@
-const formatPrice = (price: number) => {
-  let formattedPrice = new Intl.NumberFormat("en-US", {
+export function formatPrice(amount: number) {
+  return new Intl.NumberFormat("en-NG", {
     style: "currency",
     currency: "NGN",
-  }).format((price / 100).toFixed(2));
-  return formattedPrice;
-};
+  }).format(amount);
+}
 
 export default formatPrice;

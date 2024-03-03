@@ -1,18 +1,60 @@
+<script setup>
+import { ref, computed } from "vue";
+
+const navOpen = ref(false);
+const cartOpen = ref(false);
+const cartItemCount = ref(1);
+
+const toggleNav = () => {
+  navOpen.value = !navOpen.value;
+};
+
+const toggleCart = () => {
+  cartOpen.value = !cartOpen.value;
+};
+
+const route = useRoute();
+
+const isProductRoute = computed(() => {
+  return route.path.startsWith("/products/");
+});
+</script>
+
 <template>
   <nav class="navbar">
     <div class="nav-center">
       <div>
         <button class="toggle-nav" @click="toggleNav">
-          <i class="fas fa-bars"></i>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-menu-deep"
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#fff"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M4 6h16" />
+            <path d="M7 12h13" />
+            <path d="M10 18h10" />
+          </svg>
         </button>
         <ul class="nav-links">
           <li>
-            <router-link to="/" class="nav-link"> home </router-link>
-          </li>
-          <li>
-            <router-link to="/products" class="nav-link">
-              products
-            </router-link>
+            <NuxtLink
+              to="/"
+              class="nav-link"
+              :class="{
+                '!text-[var(--clr-grey-1)] hover:!text-[var(--clr-primary-5)]':
+                  isProductRoute,
+              }"
+            >
+              home
+            </NuxtLink>
           </li>
         </ul>
       </div>
@@ -27,6 +69,7 @@
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="#fff"
+            :class="{ 'stroke-[var(--clr-grey-1)]': isProductRoute }"
             fill="none"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -43,26 +86,6 @@
     </div>
   </nav>
 </template>
-
-<script setup>
-import { ref, computed } from "vue";
-
-const navOpen = ref(false);
-const cartOpen = ref(false);
-const cartItemCount = ref(1);
-
-const toggleNav = () => {
-  navOpen.value = !navOpen.value;
-};
-
-const toggleCart = () => {
-  cartOpen.value = !cartOpen.value;
-};
-
-// const logoSrc = computed(() => {
-//   return "../assets/logo-white.svg";
-// });
-</script>
 
 <style>
 .navbar {
@@ -158,15 +181,5 @@ const toggleCart = () => {
   .nav-logo {
     left: 50%;
   }
-}
-/* page navbar */
-.page .nav-link {
-  color: var(--clr-grey-1);
-}
-.page .nav-link:hover {
-  color: var(--clr-primary-5);
-}
-.page .toggle-cart {
-  color: var(--clr-grey-1);
 }
 </style>

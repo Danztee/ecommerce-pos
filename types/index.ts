@@ -5,3 +5,9 @@ export interface Product {
   image: string;
   desc: string;
 }
+
+export interface State {
+  // productInfo: Product;
+  cartItems: Product[];
+  items: Product[];
+}

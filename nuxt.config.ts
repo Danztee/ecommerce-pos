@@ -13,4 +13,5 @@ export default defineNuxtConfig({
   alias: {
     "@": resolve(__dirname, "/"),
   },
+  modules: ["@pinia/nuxt"],
 });
