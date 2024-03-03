@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
-import type { CartProduct, Product, State } from "../types";
 import axios from "axios";
+import type { CartProduct, Product, State } from "../types";
 
 export const useMainStore = defineStore("main", {
   state: (): State => ({
+    cartView: false,
     cartItems: [],
     items: [],
   }),
@@ -19,9 +20,15 @@ export const useMainStore = defineStore("main", {
       return cartItems[0].price * (cartItems[0].quantity || 0);
     },
   },
-
   actions: {
-    addToCart(product: Product) {
+    // CART STUFFS
+    openCart() {
+      this.cartView = true;
+    },
+    closeCart() {
+      this.cartView = false;
+    },
+    addItem(product: Product) {
       const existingProduct = this.cartItems.find(
         (item) => item.id === product.id
       );
@@ -33,20 +40,42 @@ export const useMainStore = defineStore("main", {
       }
       this.saveCartToLocalStorage();
     },
-
-    outCart(id: string) {
+    removeItem(id: string) {
       const index = this.cartItems.findIndex((item) => item.id === id);
       if (index !== -1) {
-        const item = this.cartItems[index];
-        if (item?.quantity !== undefined && item.quantity > 1) {
-          item.quantity--;
+        this.cartItems.splice(index, 1);
+        this.saveCartToLocalStorage();
+      }
+    },
+    increaseItem(id: string) {
+      const existingItem = this.cartItems.find((item) => item.id === id);
+      if (existingItem) {
+        existingItem?.quantity && existingItem.quantity++;
+        this.saveCartToLocalStorage();
+      }
+    },
+    decreaseItem(id: string) {
+      const existingItem = this.cartItems.find((item) => item.id === id);
+      if (existingItem) {
+        if (existingItem.quantity && existingItem.quantity > 1) {
+          existingItem.quantity && existingItem.quantity--;
         } else {
-          this.cartItems.splice(index, 1);
+          this.removeItem(id);
         }
         this.saveCartToLocalStorage();
       }
     },
+    updateCartState() {
+      const cartItemsJson = localStorage.getItem("cartItems");
+      if (cartItemsJson) {
+        this.cartItems = JSON.parse(cartItemsJson);
+      }
+    },
+    saveCartToLocalStorage() {
+      localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
+    },
 
+    //PRODUCTS
     async getAllProducts() {
       try {
         const response = await axios.get("/products.json");
@@ -55,20 +84,8 @@ export const useMainStore = defineStore("main", {
         console.error("Error fetching products:", error);
       }
     },
-
     getProductById(id: string): Product | undefined {
       return this.items.find((product) => product.id === id);
-    },
-
-    updateCartState() {
-      const cartItemsJson = localStorage.getItem("cartItems");
-      if (cartItemsJson) {
-        this.cartItems = JSON.parse(cartItemsJson);
-      }
-    },
-
-    saveCartToLocalStorage() {
-      localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
     },
   },
 });

@@ -12,6 +12,7 @@ onMounted(async () => {
 
 <template>
   <div id="app">
+    <Cart />
     <Header />
     <slot />
     <Footer />

@@ -11,6 +11,7 @@ export interface CartProduct extends Product {
 }
 
 export interface State {
+  cartView: boolean;
   cartItems: CartProduct[];
   items: Product[];
 }

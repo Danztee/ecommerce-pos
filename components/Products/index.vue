@@ -1,5 +1,4 @@
 <script setup>
-import axios from "axios";
 import { onMounted } from "vue";
 import { useMainStore } from "~/store/index";
 
@@ -7,10 +6,9 @@ const store = useMainStore();
 </script>
 
 <template>
-  <div class="products p-6 lg:p-10">
-    <h3 class="text-center pb-4">All Products</h3>
+  <div>
     <div
-      class="container mx-auto grid lg:grid-cols-3 gap-10"
+      class="xl:container mx-auto grid lg:grid-cols-3 gap-10"
       v-if="store.items.length"
     >
       <ProductsCard

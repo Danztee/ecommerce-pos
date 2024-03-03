@@ -12,8 +12,6 @@ const product = ref(null);
 onMounted(async () => {
   product.value = await store.getProductById(productId);
 });
-
-function addToCart() {}
 </script>
 
 <template>
@@ -39,7 +37,7 @@ function addToCart() {}
           <p class="single-product-desc">{{ product?.desc }}</p>
           <button
             class="bg-[var(--clr-primary-6)] p-2 rounded-md text-white px-6"
-            @click="store.addToCart(product)"
+            @click="store.addItem(product)"
           >
             add to cart
           </button>
