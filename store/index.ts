@@ -21,7 +21,7 @@ export const useMainStore = defineStore("main", {
     },
   },
   actions: {
-    // CART STUFFS
+    // CART
     openCart() {
       this.cartView = true;
     },
